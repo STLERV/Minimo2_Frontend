@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ESCUELA</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid fixed>
+    <form #crearAlumn="ngForm" (ngSumbit)="onSubmit(crearAlumn)">
+      <ion-row>
+        <ion-col size-md="6" offset-md="3">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>ALUMNO A AÑADIR </ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-item>
+                <ion-label position="floating">Nombre</ion-label>
+                <ion-input type="text" [(ngModel)]="name" name="name"></ion-input>
+              </ion-item>
+                       
+              
+            </ion-card-content>
+
+            
+            <ion-button type="submit" expand="full" (click)="onSubmit(crearAlumn)">
+           AÑADIR</ion-button>
+          </ion-card>
+
+
+        </ion-col>
+      </ion-row>
+
+
+     
+    </form>
+    <ion-row>
+            <ion-col size-md="6" offset-md="3">
+           <ion-card-title>DATOS ALUMNOS DE LA ASSIGNATURA</ion-card-title>
+             
+                <table class="striped highlight black-text">
+          <thead>
+            <th>  Nombre       ~          </th>
+            <th>  Dirección   ~   </th>
+            <th>  Carrera    </th>
+            </thead>
+          <tbody>
+            <tr *ngFor="let students of listatodos">
+              <td>{{students.name}}</td>
+              <td>{{students.adress}}</td>
+               <td>{{students.carrera}}</td>
+                        
+            </tr>
+          </tbody>
+        </table>
+             </ion-col>
+          </ion-row> 
+
+      
+    
+  </ion-grid>
+</ion-content>

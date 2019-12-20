@@ -1,0 +1,136 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ESCUELA</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid fixed>
+    <ion-col size-md="8" offset-md="1">
+    <form #crearAl="ngForm" (ngSumbit)="onSubmit2(crearAl)">
+      <ion-row>
+        <ion-col size-md="6" offset-md="3">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Datos del nuevo alumno </ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-item>
+                <ion-label position="floating">Nombre</ion-label>
+                <ion-input type="text" [(ngModel)]="name" name="name"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Address</ion-label>
+                <ion-input type="text" [(ngModel)]="adress" name="adress"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Phone </ion-label>
+                <ion-input type="int" [(ngModel)]="phones" name="phones"></ion-input>
+              </ion-item>
+            
+              <ion-item>
+                <ion-label position="floating">Carrera</ion-label>
+                <ion-select multiple="false" placeholder="Selecciona una carrera" type="text" [(ngModel)]="carrera"
+                  name="carrera">
+                  <ion-select-option value="telecos">Telecos</ion-select-option>
+                  <ion-select-option value="telematica">Telematica</ion-select-option>
+                  <ion-select-option value="aeros">Aeros</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-card-content>
+
+            
+            <ion-button type="submit" expand="full" (click)="onSubmit2(crearAl)">
+            Crear alumno</ion-button>
+          </ion-card>
+
+
+        </ion-col>
+      </ion-row>
+
+
+     
+    </form>
+
+  
+
+
+
+    <form #crearasi="ngForm" (ngSumbit)="onSubmit(crearasi)">
+      <ion-row>
+        <ion-col size-md="6" offset-md="3">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Datos de la nueva Asignatura </ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-item>
+                <ion-label position="floating">Nombre</ion-label>
+                <ion-input type="text" [(ngModel)]="name1" name="name1"></ion-input>
+              </ion-item>
+                       
+              
+            </ion-card-content>
+
+            
+            <ion-button type="submit" expand="full" (click)="onSubmit(crearasi)">
+            Crear Asignatura</ion-button>
+          </ion-card>
+
+
+        </ion-col>
+      </ion-row>
+
+
+     
+    </form>
+  </ion-col>
+  <ion-col size-md="6" offset-md="3">
+   
+    <ion-row>
+           
+            <ion-col size-md="6" offset-md="3">
+             
+                <div *ngFor="let subjects of listasubjects">
+                  <ion-card>
+                    <ion-card-header>
+                      <ion-card-title>{{subjects.name}}</ion-card-title>
+
+                      
+                    </ion-card-header>
+          <ion-button type="submit" expand="full" (click)="entrarAsignatura(subjects.name)"> ENTRAR Asignatura</ion-button>
+                   
+                  </ion-card>
+                </div>
+             </ion-col>
+          </ion-row> 
+
+      <ion-row>
+              <ion-col size-md="6" offset-md="1">
+                   <ion-card-title>LISTA AEROS</ion-card-title>
+                  <div *ngFor="let students of listaaeros">
+                          {{students.name}}
+                     </div>
+               </ion-col>
+            </ion-row> 
+
+        <ion-row>
+                <ion-col size-md="6" offset-md="1">
+                     <ion-card-title>LISTA TELECOS</ion-card-title>
+                    <div *ngFor="let students of listatelecos">
+                            {{students.name}}
+                       </div>
+                 </ion-col>
+              </ion-row> 
+          <ion-row>
+                  <ion-col size-md="6" offset-md="1">
+                       <ion-card-title>LISTA TELEMATICA</ion-card-title>
+                      <div *ngFor="let students of listatel">
+                              {{students.name}}
+                         </div>
+                   </ion-col>
+                </ion-row> 
+    
+          </ion-col>
+ 
+</ion-grid>
+</ion-content>
